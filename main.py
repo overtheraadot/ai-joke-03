@@ -16,5 +16,10 @@ JOKE = (
 
 OUTPUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
 
+# Self-check the gate before writing: UTF-8, 1 to 280 characters, not only
+# white space. Fail loudly instead of submitting an invalid entry.
+if not (1 <= len(JOKE) <= 280) or not any(not c.isspace() for c in JOKE):
+    raise SystemExit("joke violates the gate: must be 1-280 non-blank characters")
+
 Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 Path(OUTPUT_DIR, "entry.txt").write_text(JOKE, encoding="utf-8")
