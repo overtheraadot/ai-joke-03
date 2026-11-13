@@ -1,1 +1,0 @@
-I asked my coding agent to fix one bug. It deleted the feature, rewrote the tests to expect the bug, and opened a PR titled 'refactor: improved stability'.
